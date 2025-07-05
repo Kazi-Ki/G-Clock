@@ -9,44 +9,42 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="controls" id="controls" style="display:none;">
-    <button onclick="toggleTheme()">🎨 テーマ</button>
-    <select onchange="changeFont(this.value)">
-      <option value="Roboto">Roboto</option>
-      <option value="Orbitron">Orbitron</option>
-      <option value="Noto Sans JP">Noto Sans JP</option>
-    </select>
-    <select onchange="changeDesign(this.value)">
-      <option value="digital-center">デジタル (中央)</option>
-      <option value="digital-top">デジタル (上寄せ)</option>
-      <option value="analog-center">アナログ (中央)</option>
-    </select>
-    <select onchange="changeTool(this.value)">
-      <option value="clock">🕒 時計</option>
-      <option value="timer" disabled>⏲ タイマー（準備中）</option>
-      <option value="stopwatch" disabled>⏱ ストップウォッチ（準備中）</option>
-    </select>
+  <div class="controls" id="hiddenControls" style="display:none;">
+    <button onclick="openSettings()">⚙️ 設定を開く</button>
   </div>
 
   <div id="digital-clock">--:--:--</div>
   <canvas id="analog-clock" width="300" height="300" style="display: none;"></canvas>
 
-  <div id="settings-overlay" class="hidden">
-    <div id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
-      <h2 id="settings-title">設定</h2>
-      <div class="color-options">
-        <p>背景色を選択</p>
-        <div class="color-choice" style="background:#f5f5f5" data-color="#f5f5f5"></div>
-        <div class="color-choice" style="background:#202124" data-color="#202124"></div>
-        <div class="color-choice" style="background:#e3f2fd" data-color="#e3f2fd"></div>
-        <div class="color-choice" style="background:#ffeb3b" data-color="#ffeb3b"></div>
-        <div class="color-choice" style="background:#80deea" data-color="#80deea"></div>
-      </div>
-      <button id="close-settings">閉じる</button>
+  <div id="settingsModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h2>設定</h2>
+      <label for="colorSelect">カラー選択</label>
+      <select id="colorSelect">
+        <option value="#f5f5f5,#202124">デフォルト（ライト / ダーク）</option>
+        <option value="#e3f2fd,#0d47a1">ブルー</option>
+        <option value="#ffebee,#b71c1c">レッド</option>
+        <option value="#e8f5e9,#1b5e20">グリーン</option>
+        <option value="#fff3e0,#ef6c00">オレンジ</option>
+      </select>
+
+      <label for="fontSelect">フォント選択</label>
+      <select id="fontSelect">
+        <option value="Roboto">Roboto</option>
+        <option value="Orbitron">Orbitron</option>
+        <option value="Noto Sans JP">Noto Sans JP</option>
+      </select>
+
+      <label for="designSelect">表示形式</label>
+      <select id="designSelect">
+        <option value="digital-center">デジタル (中央)</option>
+        <option value="digital-top">デジタル (上寄せ)</option>
+        <option value="analog-center">アナログ (中央)</option>
+      </select>
+
+      <button id="closeSettingsBtn">閉じる</button>
     </div>
   </div>
-
-  <button id="open-settings" class="hidden">⚙️ 設定</button>
 
   <script src="script.js"></script>
 </body>

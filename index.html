@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>時計ツール</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Noto+Sans+JP&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="controls">
+    <button onclick="toggleTheme()">🎨 テーマ</button>
+    <select onchange="changeFont(this.value)">
+      <option value="Roboto">Roboto</option>
+      <option value="Orbitron">Orbitron</option>
+      <option value="Noto Sans JP">Noto Sans JP</option>
+    </select>
+    <select onchange="changeDesign(this.value)">
+      <option value="digital-center">デジタル (中央)</option>
+      <option value="digital-top">デジタル (上寄せ)</option>
+      <option value="analog-center">アナログ (中央)</option>
+    </select>
+    <select onchange="changeTool(this.value)">
+      <option value="clock">🕒 時計</option>
+      <option value="timer" disabled>⏲ タイマー（準備中）</option>
+      <option value="stopwatch" disabled>⏱ ストップウォッチ（準備中）</option>
+    </select>
+  </div>
+
+  <div id="digital-clock">--:--:--</div>
+  <canvas id="analog-clock" width="300" height="300" style="display: none;"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>

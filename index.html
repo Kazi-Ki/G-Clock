@@ -2,14 +2,14 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>時計ツール</title>
+  <title>Google風 時計ツール</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Noto+Sans+JP&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="controls">
+  <div class="controls" id="controls" style="display:none;">
     <button onclick="toggleTheme()">🎨 テーマ</button>
     <select onchange="changeFont(this.value)">
       <option value="Roboto">Roboto</option>
@@ -30,6 +30,23 @@
 
   <div id="digital-clock">--:--:--</div>
   <canvas id="analog-clock" width="300" height="300" style="display: none;"></canvas>
+
+  <div id="settings-overlay" class="hidden">
+    <div id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+      <h2 id="settings-title">設定</h2>
+      <div class="color-options">
+        <p>背景色を選択</p>
+        <div class="color-choice" style="background:#f5f5f5" data-color="#f5f5f5"></div>
+        <div class="color-choice" style="background:#202124" data-color="#202124"></div>
+        <div class="color-choice" style="background:#e3f2fd" data-color="#e3f2fd"></div>
+        <div class="color-choice" style="background:#ffeb3b" data-color="#ffeb3b"></div>
+        <div class="color-choice" style="background:#80deea" data-color="#80deea"></div>
+      </div>
+      <button id="close-settings">閉じる</button>
+    </div>
+  </div>
+
+  <button id="open-settings" class="hidden">⚙️ 設定</button>
 
   <script src="script.js"></script>
 </body>
